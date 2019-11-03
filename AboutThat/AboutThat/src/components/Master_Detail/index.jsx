@@ -90,27 +90,33 @@ class Master_Detail extends Component {
       }
     }
 
-    if (articles[0].query.toLowerCase() === searchVal.toLowerCase()) {
-      var dict = {};
-      var counts = {};
-      articles.forEach(calculate);
-
-      function calculate(value) {
-        if (value.source in dict) {
-          dict[value.source] += value.sentiment;
-          counts[value.source] += 1;
-        } else {
-          dict[value.source] = value.sentiment;
-          counts[value.source] = 1;
+    console.log(articles);
+    if (articles) {
+      if (articles[0].query.toLowerCase() === searchVal.toLowerCase()) {
+        var dict = {};
+        var counts = {};
+        articles.forEach(calculate);
+  
+        function calculate(value) {
+          if (value.source in dict) {
+            dict[value.source] += value.sentiment;
+            counts[value.source] += 1;
+          } else {
+            dict[value.source] = value.sentiment;
+            counts[value.source] = 1;
+          }
         }
+        var average = {};
+        for(var key in dict) {
+          average[key] = (dict[key] / counts[key]).toFixed(2);
+        }
+        await this.setState({data: average});
+        await this.getChartData();
+      } else {
+        console.log("invalid query");
       }
-      var average = {};
-      for(var key in dict) {
-        average[key] = (dict[key] / counts[key]).toFixed(2);
-      }
-      await this.setState({data: average});
-      await this.getChartData();
-    } else {
+    }
+    else {
       console.log("invalid query");
     }
   } 
