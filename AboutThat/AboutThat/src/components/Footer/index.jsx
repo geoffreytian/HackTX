@@ -12,7 +12,7 @@ export default function Footer() {
                   Search to see different news articles sentiments related to your query!
             </p>
           </div>
-          Currently Supported News Platforms:
+          <p style={{color: 'white'}}>Currently Supported News Platforms:</p>
           <div className="col-2">
             <ul className="list-unstyled">
               <li>

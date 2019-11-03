@@ -1,0 +1,56 @@
+{
+	{ “id” : “fox_1”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.1”,
+	   “rank” : “1”
+	   “source” : “fox”
+	},
+	{ “id” : “cnn_1”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.2”,
+	   “rank” : “2”
+	   “source” : “cnn”
+	},
+	{ “id” : “bbc_1”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.3”,
+	   “rank” : “3”
+	   “source” : “bbc”
+	},
+	{ “id” : “fox_2”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.4”,
+	   “rank” : “4”
+	   “source” : “fox”
+	},
+	{ “id” : “cnn_2”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.5”,
+	   “rank” : “5”
+	   “source” : “cnn”
+	},
+	{ “id” : “bbc_2”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.6”,
+	   “rank” : “6”
+	   “source” : “bbc”
+	},
+	{ “id” : “fox_3”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.7”,
+	   “rank” : “7”
+	   “source” : “fox”
+	},
+	{ “id” : “cnn_3”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.8”,
+	   “rank” : “8”
+	   “source” : “cnn”
+	},
+	{ “id” : “bbc_3”, 
+	   “query” : ”global warming”,
+	   “sentiment” : “.9”,
+	   “rank” : “9”
+	   “source” : “bbc”
+	},
+}

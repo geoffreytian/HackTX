@@ -1,7 +1,7 @@
 ﻿import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import Title from "./components/Title";
 import Footer from "./components/Footer";
 import Master_Detail from "./components/Master_Detail";
 import Grid from "./components/Grid";
@@ -10,8 +10,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
-        <Switch>
+        <Title />
+        <Switch >
           <Route exact path = "/">
             <Redirect to="/Master_Detail" />
           </Route>

@@ -24,7 +24,8 @@ class Master_Detail extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{display: 'flexbox', flexdirection: 'column', background: 'black', height: '80vh', margin: '78px auto'}}>
+        <h1 style={{color: 'white', textAlign: 'center', fontFamily: 'PT Sans Narrow', fontSize: '48px', position: 'relative', top: '200px'}}>See what people are saying about: </h1>
         <SearchBar submit={this.onSubmit.bind(this)}></SearchBar>
       </div>
     );
