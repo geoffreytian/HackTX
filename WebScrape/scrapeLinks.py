@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import json
 
+all_data ={}
 def main():
     search_term = 'Lebron James Lakers'
     search_term = url_encode(search_term)
@@ -16,6 +17,7 @@ def main():
     scrapeCNN(browser, search_term)
     scrapeBBC(browser, search_term)
     scrapeFOX(browser, search_term)
+    export_json()
 
 
 def url_encode(search_term):
@@ -81,18 +83,18 @@ def scrapeFOX(browser, search_term):
 
 
 def writeToJson(articles, newsSource):
-    data = {}
-    data[newsSource] = {
-        "links": []
+    data = {
+        "link": []
     }
     for art in articles:
-        data[newsSource]['links'].append(art)
-
+        data['link'].append(art)
     print(data)
+    all_data[newsSource] = data
 
-    with open(newsSource + '.json', 'w') as fp:
-        json.dump(data, fp)
 
+def export_json():
+    with open('articles.json', 'w') as fp:
+        json.dump(all_data, fp)
 
 
 
