@@ -9,24 +9,25 @@ export default function Footer() {
           <div className="col-8 col-md-5">
             <h5 className={styles.title}>AboutThat</h5>
             <p className={styles.description}>
-              This is placeholder text. Your web app description goes here.
+                  Search to see different news articles sentiments related to your query!
             </p>
           </div>
+          Currently Supported News Platforms:
           <div className="col-2">
             <ul className="list-unstyled">
               <li>
-                <a className={styles.footerlink} href="/">
-                  Example Link
+                <a className={styles.footerlink} href="https://www.cnn.com/">
+                  CNN
                 </a>
               </li>
               <li>
-                <a className={styles.footerlink} href="/">
-                  Example Link
+                <a className={styles.footerlink} href="https://www.fox.com/news/">
+                  FOX
                 </a>
               </li>
               <li>
-                <a className={styles.footerlink} href="/">
-                  Example Link
+                <a className={styles.footerlink} href="https://www.bbc.com/">
+                  BBC
                 </a>
               </li>
             </ul>
