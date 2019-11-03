@@ -1,5 +1,6 @@
 ﻿import React, { Component } from "react";
 import SearchBar from "./SearchBar";
+import DATA from "./data.json";
 
 class Master_Detail extends Component {
   constructor(props) {
@@ -17,9 +18,30 @@ class Master_Detail extends Component {
   // }
 
   onSubmit(searchVal) {
-    this.setState({search: searchVal});
-    alert(searchVal);
-    console.log(searchVal);
+    var articles = DATA.articles;
+    if (articles[0].query.toLowerCase() == searchVal.toLowerCase()) {
+      var dict = {};
+      var counts = {};
+      articles.forEach(calculate);
+
+      function calculate(value) {
+        if (value.source in dict) {
+          dict[value.source] += value.sentiment;
+          counts[value.source] += 1;
+        } else {
+          dict[value.source] = value.sentiment;
+          counts[value.source] = 1;
+        }
+      }
+      var average = {};
+      for(var key in dict) {
+        average[key] = dict[key] / counts[key];
+      }
+
+      console.log(average);
+    } else {
+      console.log("invalid query");
+    }
   } 
 
   render() {
