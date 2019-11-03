@@ -32,12 +32,6 @@ class SearchBar extends React.Component {
         <label for="nme"><span></span></label>
         <input type="submit" value="Submit!" />
       </form>
-
-
-      // <form style={{fontSize: "25px", position: 'relative', top: '200px', left: '25%', width: '50%'}} onSubmit={this.handleSubmit}>
-      //     <input type="text" placeholder={this.state.value} onChange={this.handleChange} style={{width: '75%'}} id="searchInput"/>
-      //     <input type="submit" value="Go!" style={{width: '25%'}} id="submitSearch"/>
-      // </form>
     );
   }
 }
