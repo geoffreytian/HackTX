@@ -6,21 +6,121 @@ from time import mktime
 from datetime import datetime
 import os, uuid, sys
 from azure.storage.blob import BlockBlobService, PublicAccess
+from bs4 import BeautifulSoup
+import requests
+from selenium import webdriver
+import urllib.request
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+import json
+
+
+all_data ={}
+def main_func():
+    search_term = 'Lebron James Lakers'
+    search_term = url_encode(search_term)
+    browser = None
+    browser = webdriver.Chrome("../Downloads/chromedriver 2")
+    scrapeCNN(browser, search_term)
+    scrapeBBC(browser, search_term)
+    scrapeFOX(browser, search_term)
+    export_json()
+
+
+def url_encode(search_term):
+    terms = search_term.split(' ')
+    encoded = terms[0]
+    for i in range(1, len(terms)):
+        encoded += "%20"
+        encoded += terms[i]
+    return encoded
+
+
+def scrapeCNN(browser, search_term):
+    url = "https://www.cnn.com/search?q=" + search_term
+    browser.get(url)
+
+    try:
+        myElem = WebDriverWait(browser, 3).until(
+            EC.presence_of_element_located((By.CLASS_NAME, 'cnn-search__result-headline')))
+        print
+        "Page is ready!"
+        articles = browser.find_elements_by_xpath('//div[@class="cnn-search__result-contents"]/h3/a')
+        articles2 = []
+        for art in articles:
+            articles2.append(art.get_attribute("href"))
+        articles = articles2
+        writeToJson(articles, "cnn")
+    except TimeoutException:
+        print
+        "Loading took too much time!"
+
+def scrapeBBC(browser, search_term):
+    url = 'https://www.bbc.co.uk/search?q=' + search_term + '&filter=news'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, features="html.parser")
+    articles = []
+    for i in range(10):
+        article_to_append = soup.find("a", {"id": "search-result-" + str(i)})
+        if not article_to_append == None:
+            articles.append(article_to_append['href'])
+        else:
+            break
+    writeToJson(articles, "bbc")
+
+
+def scrapeFOX(browser, search_term):
+    url = "https://www.foxnews.com/search-results/search?q=" + search_term + "&type=story"
+    browser.get(url)
+
+    try:
+        myElem = WebDriverWait(browser, 3).until(
+            EC.presence_of_element_located((By.CLASS_NAME, 'ng-binding')))
+        print
+        "Page is ready!"
+        articles = browser.find_elements_by_xpath('//a[@ng-bind="article.title"]')
+        articles2 = []
+        for art in articles:
+            articles2.append(art.get_attribute("href"))
+        articles = articles2
+        writeToJson(articles, "fox")
+    except TimeoutException:
+        print
+        "Loading took too much time!"
+
+
+def writeToJson(articles, newsSource):
+    data = {
+        "link": []
+    }
+    for art in articles:
+        data['link'].append(art)
+    print(data)
+    all_data[newsSource] = data
+
+
+def export_json():
+    with open('articles.json', 'w') as fp:
+        json.dump(all_data, fp)
+
+
+main_func()
+
 
 # Set the limit for number of articles to download
-LIMIT = 10
+LIMIT = 30
+
 
 data = {}
 data['newspapers'] = {}
+
 
 documents = {
 	
 	"documents":[]
 }
-
-
-with open('newspaper.json') as data_file:
-	companies = json.load(data_file)
 
 
 count = 1
@@ -68,11 +168,11 @@ def run_sample():
 		for blob in generator:
 			print("\t Blob name: " + blob.name)
 
-		# Download the blob(s).
-		# Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-		full_path_to_file2 = os.path.join(local_path, str.replace("article_text/"+local_file_name ,'.json', '_DOWNLOADED.json'))
-		print("\nDownloading blob to " + full_path_to_file2)
-		block_blob_service.get_blob_to_path(container_name, "article_text/"+local_file_name, full_path_to_file2)
+		# # Download the blob(s).
+		# # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
+		# full_path_to_file2 = os.path.join(local_path, str.replace("article_text/"+local_file_name ,'.json', '_DOWNLOADED.json'))
+		# print("\nDownloading blob to " + full_path_to_file2)
+		# block_blob_service.get_blob_to_path(container_name, "article_text/"+local_file_name, full_path_to_file2)
 
 		sys.stdout.write("Sample finished running. When you hit <any key>, the sample will be deleted and the sample "
 						 "application will exit.")
@@ -90,8 +190,12 @@ def run_sample():
 
 
 
+# all_data={"cnn": {"link": ["https://www.cnn.com/2019/10/31/politics/world-series-washington-nationals-trump-unity/index.html", "https://www.cnn.com/2019/10/29/us/lebron-james-taco-truck-firefighters-trnd/index.html", "https://www.cnn.com/us/live-news/california-fires-los-angeles-october-2019/index.html", "https://www.cnn.com/2019/10/28/us/lebron-james-evacuates-home-due-to-la-fire-trnd/index.html", "https://www.cnn.com/2019/10/23/sport/nba-china-t-shirt-protest-lakers-clippers/index.html", "https://www.cnn.com/2019/10/23/us/shaquille-oneal-nba-china-intl-hnk-scli/index.html", "https://www.cnn.com/2019/10/23/sport/nba-opening-day-la-lakers-and-la-clippers/index.html", "https://www.cnn.com/2019/10/22/sport/zion-williamson-injury-nba-new-orleans-pelicans-spt-intl/index.html", "https://www.cnn.com/2019/10/16/us/lebron-james-nba-china-controversy-trnd/index.html", "https://www.cnn.com/2019/10/14/us/lebron-james-nba-china-intl-hnk-scli/index.html"]}, "bbc": {"link": ["http://www.bbc.co.uk/news/world-us-canada-44978813", "http://www.bbc.co.uk/news/newsbeat-44681504"]}, "fox": {"link": ["https://www.foxnews.com/sports/leonard-leads-clippers-over-lebron-and-lakers-112-102", "https://www.foxnews.com/transcript/shaq-charles-barkley-argue-over-lebron-james-and-china", "https://www.foxnews.com/sports/taco-tuesdays-lebron-james-sends-food-truck-to-feed-getty-fire-first-responders", "https://www.foxnews.com/sports/lebron-james-anthony-davis-lakers-23-jersey-report", "https://www.foxnews.com/us/getty-fire-mandatory-evacuation-california-los-angeles-wildfire-risk", "https://www.foxnews.com/sports/lebron-james-taco-tuesday-trademark", "https://www.foxnews.com/sports/lebron-james-anthony-davis-trade-lakers-reactions", "https://www.foxnews.com/sports/lebron-james-trade-rumors-lakes-negotiations-report", "https://www.foxnews.com/sports/lebron-james-reaction-magic-johnson-leaving-lakers", "https://www.foxnews.com/sports/andrew-bogut-lebron-james-china-hong-kong-tweet"]}}
+
+
+
 # Iterate through each news company
-for company, value in companies.items():
+for company, value in all_data.items():
 	if 'rss' in value:
 		d = fp.parse(value['rss'])
 		print("Downloading articles from ", company)
@@ -133,16 +237,19 @@ for company, value in companies.items():
 		# This is the fallback method if a RSS-feed link is not provided.
 		# It uses the python newspaper library to extract articles
 		print("Building site for ", company)
-		paper = newspaper.build(value['link'], memoize_articles=False)
 
-		newsPaper = {
-			"link": value['link'],
-			"articles": []
-		}
-		
-		noneTypeCount = 0
-		for content in paper.articles:
+
+		for link in value['link']:
+			content = Article(link)
+
+			newsPaper = {
+				"link": link,
+				"articles": []
+			}
 			
+			noneTypeCount = 0
+			
+				
 			if count > LIMIT:
 				break
 			try:
@@ -154,20 +261,13 @@ for company, value in companies.items():
 				continue
 			# Again, for consistency, if there is no found publish date the article will be skipped.
 			# After 10 downloaded articles from the same newspaper without publish date, the company will be skipped.
-			if content.publish_date is None:
-				print(count, " Article has date of type None...")
-				noneTypeCount = noneTypeCount + 1
-				if noneTypeCount > 10:
-					print("Too many noneType dates, aborting...")
-					noneTypeCount = 0
-					break
-				count = count + 1
-				continue
+
 			article = {}
 			article['title'] = content.title
 			article['text'] = content.text
 			article['link'] = content.url
-			article['published'] = content.publish_date.isoformat()
+			if content.publish_date is not None:
+				article['published'] = content.publish_date.isoformat()
 			newsPaper['articles'].append(article)
 
 			info = {}
