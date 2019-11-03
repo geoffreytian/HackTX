@@ -1,12 +1,8 @@
 import React from "react";
 // import classnames from "classnames";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-
-  static propTypes = {
-    submitCallback: PropTypes.func
-  };
 
   constructor(props) {
     super(props);
@@ -24,8 +20,7 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(event.target.value);
-    this.props.submitCallback(this.state.value);
+    this.props.submit(this.state.value);
     event.preventDefault();
   }
 
