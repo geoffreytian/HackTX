@@ -81,7 +81,15 @@ class Master_Detail extends Component {
     //   console.log(Http.responseText)
     // }
 
-    var articles = DATA.articles;
+    var queries = DATA.by_query;
+    var articles;
+    for (var i = 0; i < queries.length; i++) {
+      if (queries[i].query.toLowerCase() === searchVal.toLowerCase()) {
+        articles = queries[i].articles;
+        break;
+      }
+    }
+
     if (articles[0].query.toLowerCase() === searchVal.toLowerCase()) {
       var dict = {};
       var counts = {};
