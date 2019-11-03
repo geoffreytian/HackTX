@@ -1,35 +1,53 @@
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-import os
 import json
+import os, uuid, sys
+from azure.storage.blob import BlockBlobService, PublicAccess
+from azure.storage import CloudStorageAccount
 
 
-with open('articles_analyze.json') as data_file:
-    documents = json.load(data_file)
 
 
-
-key_var_name = '2bfb02d195874437ad0def7e8627391d'
-# if not key_var_name in os.environ:
-#     raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+key_var_name = '5cae07ed5d1248f5bf2ba0a1cce9174b'
 subscription_key = key_var_name
 
-endpoint_var_name = 'https://election-news.cognitiveservices.azure.com/'
-# if not endpoint_var_name in os.environ:
-#     raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint_var_name = 'https://news-sentiment.cognitiveservices.azure.com/'
 endpoint = endpoint_var_name
 
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 
 
-headers = {"Ocp-Apim-Subscription-Key": subscription_key}
-response = requests.post(sentiment_url, headers=headers, json=documents)
-sentiments = response.json()
-pprint(sentiments)
-
-
 try:
-	with open('sentiment_scores.json', 'w') as outfile:
-		json.dump(sentiments, outfile)
-except Exception as e: print(e)
+	# Create the BlockBlockService that is used to call the Blob service for the storage account
+	block_blob_service = BlockBlobService(account_name='hacktx', account_key='1hmCn9TjWFGW2Loerw502i8AOjK59Qx7pXxFcDHCasKZHQtypcWY8xhHliW05DrpowksXeDSEMQx5mfEiDkGPw==')
+	# Create a container called 'quickstartblobs'.
+	container_name ='news-sentiment'
+	generator = block_blob_service.list_blobs(container_name,prefix="article_text/")
+
+	for blob in generator:
+		blob_item= block_blob_service.get_blob_to_bytes(container_name,blob.name)
+		documents = blob_item.content
+
+		new_str = json.loads(documents.decode('utf-8'))
+
+		headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+		response = requests.post(sentiment_url, headers=headers, json=new_str)
+		sentiments = response.json()
+		pprint(sentiments)
+
+		local_file_name ="sentiment_" + blob.name
+
+		print("\nUploading to Blob storage as blob" + local_file_name)
+
+		# Upload the created file, use local_file_name for the blob name
+		block_blob_service.create_blob_from_bytes(container_name, local_file_name,json.dumps(sentiments).encode())
+
+
+		# try:
+		# 	with open("sentiment_scores/"+local_file_name, 'w+') as outfile:
+		# 		json.dump(sentiments, outfile)
+		# except Exception as e: print(e)
+
+except Exception as e:
+		print(e)
