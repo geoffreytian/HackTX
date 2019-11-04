@@ -9,10 +9,15 @@ export default function Footer() {
           <div className="col-8 col-md-5">
             <h5 className={styles.title}>AboutThat</h5>
             <p className={styles.description}>
-                  Search to see different news articles sentiments related to your query!
+                  "About This" allows voters to search for words/phrases that matter to them and 
+                  then view a bar graph showing them how much news bias there is on this topic. 
+                  The bar graph compares several news sources and their sentiment of the searched word/phrase. 
+                  {/* Note: data is self-generated, not accurate reflections of news sources yet.
+                  Currently supported searchs: "Trump", "guns", "global warming", "taxes", 
+                  "third party", "republican", "democrat", "government", "Hillary", "politics". */}
             </p>
           </div>
-          Currently Supported News Platforms:
+          <p style={{color: 'white'}}>Currently Supported News Platforms:</p>
           <div className="col-2">
             <ul className="list-unstyled">
               <li>

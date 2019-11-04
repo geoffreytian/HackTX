@@ -1,0 +1,593 @@
+{	"by_query": 
+	[{	"query": "global warming",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "global warming",
+			"sentiment": 0.1,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "global warming",
+			"sentiment": 0.2,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "global warming",
+			"sentiment": 0.3,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "global warming",
+			"sentiment": 0.4,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "global warming",
+			"sentiment": 0.5,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "global warming",
+			"sentiment": 0.6,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "global warming",
+			"sentiment": 0.4,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "global warming",
+			"sentiment": 0.5,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "global warming",
+			"sentiment": 0.6,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	},
+	{
+		"query": "third party",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "third party",
+			"sentiment": 0.8,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "third party",
+			"sentiment": 0.6,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "third party",
+			"sentiment": 0.9,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "third party",
+			"sentiment": 0.5,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "third party",
+			"sentiment": 0.8,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "third party",
+			"sentiment": 0.7,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "third party",
+			"sentiment": 0.8,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "third party",
+			"sentiment": 0.4,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "third party",
+			"sentiment": 0.9,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+
+	}, 
+	{ "query": "taxes",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "taxes",
+			"sentiment": 0.7,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "taxes",
+			"sentiment": 0.3,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "taxes",
+			"sentiment": 0.8,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "taxes",
+			"sentiment": 0.2,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "taxes",
+			"sentiment": 0.6,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "taxes",
+			"sentiment": 0.3,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "taxes",
+			"sentiment": 0.9,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "taxes",
+			"sentiment": 0.8,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "taxes",
+			"sentiment": 0.4,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]	
+
+	},
+	{
+		"query": "guns",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "guns",
+			"sentiment": 0.9,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "guns",
+			"sentiment": 0.8,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "guns",
+			"sentiment": 0.8,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "guns",
+			"sentiment": 0.6,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "guns",
+			"sentiment": 0.8,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "guns",
+			"sentiment": 0.7,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "guns",
+			"sentiment": 0.9,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "guns",
+			"sentiment": 0.8,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "guns",
+			"sentiment": 0.7,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+
+	},
+	{
+		"query": "Trump",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "trump",
+			"sentiment": 0.7,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "trump",
+			"sentiment": 0.5,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "trump",
+			"sentiment": 0.5,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "trump",
+			"sentiment": 0.8,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "trump",
+			"sentiment": 0.2,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "trump",
+			"sentiment": 0.3,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "trump",
+			"sentiment": 0.6,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "trump",
+			"sentiment": 0.4,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "trump",
+			"sentiment": 0.5,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	},
+	{
+		"query":"politics",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "politics",
+			"sentiment": 0.3,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "politics",
+			"sentiment": 0.6,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "politics",
+			"sentiment": 0.8,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "politics",
+			"sentiment": 0.4,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "politics",
+			"sentiment": 0.7,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "politics",
+			"sentiment": 0.7,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "politics",
+			"sentiment": 0.5,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "politics",
+			"sentiment": 0.5,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "politics",
+			"sentiment": 0.6,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	},
+	{	"query":"Hillary",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "Hillary",
+			"sentiment": 0.4,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "Hillary",
+			"sentiment": 0.8,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "Hillary",
+			"sentiment": 0.5,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "Hillary",
+			"sentiment": 0.5,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "Hillary",
+			"sentiment": 0.6,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "Hillary",
+			"sentiment": 0.5,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "Hillary",
+			"sentiment": 0.3,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "Hillary",
+			"sentiment": 0.8,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "Hillary",
+			"sentiment": 0.8,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	},
+	{
+		"query": "government",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "government",
+			"sentiment": 0.5,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "government",
+			"sentiment": 0.6,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "government",
+			"sentiment": 0.5,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "government",
+			"sentiment": 0.6,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "government",
+			"sentiment": 0.5,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "government",
+			"sentiment": 0.6,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "government",
+			"sentiment": 0.5,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "government",
+			"sentiment": 0.6,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "government",
+			"sentiment": 0.5,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+
+	},
+	{	"query": "republicans",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "republican",
+			"sentiment": 0.7,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "republican",
+			"sentiment": 0.4,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "republican",
+			"sentiment": 0.7,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "republican",
+			"sentiment": 0.4,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "republican",
+			"sentiment": 0.6,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "republican",
+			"sentiment": 0.9,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "republican",
+			"sentiment": 0.9,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "republican",
+			"sentiment": 0.2,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "republican",
+			"sentiment": 0.7,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	},
+	{
+		"query": "democrat",
+		"articles": [
+			{ "id": "fox_1", 
+			"query": "democrat",
+			"sentiment": 0.4,
+			"rank": 1,
+			"source": "fox"
+			},
+			{ "id": "cnn_1", 
+			"query": "democrat",
+			"sentiment": 0.7,
+			"rank": 2,
+			"source": "cnn"
+			},
+			{ "id": "bbc_1", 
+			"query": "democrat",
+			"sentiment": 0.5,
+			"rank": 3,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "democrat",
+			"sentiment": 0.3,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "democrat",
+			"sentiment": 0.7,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "democrat",
+			"sentiment": 0.5,
+			"rank": 6,
+			"source": "bbc"
+			},
+			{ "id": "fox_2", 
+			"query": "democrat",
+			"sentiment": 0.3,
+			"rank": 4,
+			"source": "fox"
+			},
+			{ "id": "cnn_2", 
+			"query": "democrat",
+			"sentiment": 0.5,
+			"rank": 5,
+			"source": "cnn"
+			},
+			{ "id": "bbc_2", 
+			"query": "democrat",
+			"sentiment": 0.5,
+			"rank": 6,
+			"source": "bbc"
+			}
+		]
+	}
+]
+}

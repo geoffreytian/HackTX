@@ -1,4 +1,5 @@
 import React from "react";
+import './search.css';
 // import classnames from "classnames";
 // import PropTypes from 'prop-types';
 
@@ -26,9 +27,10 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder={this.state.value} onChange={this.handleChange} style={{fontSize: "25px", width: "90%"}} id="searchInput"/>
-          <input type="submit" value="Go!" style={{fontSize: "25px", width: "10%"}} id="submitSearch"/>
+      <form style={{fontSize: "25px", position: 'relative', top: '200px', left: '23%', width: '70%', color: 'white', fontFamily: 'PT Sans Narrow'}} onSubmit={this.handleSubmit}>
+        <input type="text" style={{color: 'white'}} name="name" placeholder={this.state.value} onChange={this.handleChange} class="question" id="nme" required autocomplete="off" />
+        <label for="nme"><span></span></label>
+        <input type="submit" value="Submit!" />
       </form>
     );
   }
